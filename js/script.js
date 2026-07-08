@@ -9,7 +9,9 @@ toggle.addEventListener("click", () => {
     nav.style.backgroundColor = "#1E293B";
     nav.style.borderBottom = "#334155";
     toggle.style.backgroundColor = "#fff";
-    isDark = !isDark;
+    document.querySelectorAll("td, th").forEach((cell) => {
+      cell.style.borderColor = "#fff";
+    });
   } else {
     toggle.src = "./assets/moon.svg";
     document.body.style.backgroundColor = "#F8FAFC";
@@ -17,6 +19,21 @@ toggle.addEventListener("click", () => {
     nav.style.backgroundColor = "#FFFFFF";
     nav.style.borderBottom = "2px solid #E2E8F0";
     toggle.style.backgroundColor = "#000";
-    isDark = !isDark;
+    document.querySelectorAll("td, th").forEach((cell) => {
+      cell.style.borderColor = "#000";
+    });
   }
+  isDark = !isDark;
 });
+
+let currentHr = new Date().getHours();
+let greet = document.getElementById("greet");
+if (currentHr < 12) {
+  greet.innerText = "Morning";
+} else if (currentHr < 17) {
+  greet.innerText = "Afternoon";
+} else if (currentHr < 21) {
+  greet.innerText = "Evening";
+} else {
+  greet.innerText = "Night";
+}
