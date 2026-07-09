@@ -12,6 +12,9 @@ toggle.addEventListener("click", () => {
     document.querySelectorAll("td, th").forEach((cell) => {
       cell.style.borderColor = "#fff";
     });
+    Array.from(document.getElementsByClassName("border")).forEach((border)=>{
+      border.style.borderColor="#fff"
+    })
   } else {
     toggle.src = "./assets/moon.svg";
     document.body.style.backgroundColor = "#F8FAFC";
@@ -22,6 +25,9 @@ toggle.addEventListener("click", () => {
     document.querySelectorAll("td, th").forEach((cell) => {
       cell.style.borderColor = "#000";
     });
+    Array.from(document.getElementsByClassName("border")).forEach((border)=>{
+      border.style.borderColor="#000"
+    })
   }
   isDark = !isDark;
 });

@@ -9,8 +9,11 @@ body {
   color: #0f172a;
 }
 
-:root{
-  
+.bold {
+  font-weight: 700;
+}
+.bottom-border{
+  border-bottom: 1px solid black;
 }
 
 nav {
@@ -21,8 +24,9 @@ nav {
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
-  border-bottom: 2px solid #E2E8F0;
+  border-bottom: 2px solid #e2e8f0;
 }
+
 .logo {
   display: flex;
   align-items: center;
@@ -49,17 +53,37 @@ nav {
   cursor: pointer;
 }
 
-.hero{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#dashboard{
-    border-collapse: collapse;
+#dashboard {
+  border-collapse: collapse;
 }
-#dashboard th, #dashboard td{
-    border: 2px solid black;
-    padding: 0.5rem;
+#dashboard th,
+#dashboard td {
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+
+.add-task{
+  width: 50%;
+  margin: 2rem auto;
+  padding: 3rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+.task{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.add-task .task:hover{
+  cursor: pointer;
+  box-shadow: 0.5rem 0.5rem 20px gray;
 }
