@@ -18,7 +18,7 @@ body {
 
 button:hover{
   cursor: pointer;
-  transform: scale(1.2)
+  transform: scale(1.1)
 }
 
 input{
@@ -94,4 +94,11 @@ nav {
 .add-task .task:hover{
   cursor: pointer;
   box-shadow: 0.5rem 0.5rem 20px gray;
+}
+
+#new-task form{
+  margin: 2rem;
+  display:flex;
+  gap: 2rem;
+  justify-content: center;
 }

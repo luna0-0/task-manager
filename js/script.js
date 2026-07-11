@@ -1,33 +1,42 @@
 let toggle = document.getElementById("toggle-img");
 let isDark = false;
 let nav = document.querySelector("nav");
+
+function darkMode() {
+  toggle.src = "./assets/moon.svg";
+  document.body.style.backgroundColor = "#F8FAFC";
+  document.body.style.color = "#0F172A";
+  nav.style.backgroundColor = "#FFFFFF";
+  nav.style.borderBottom = "2px solid #E2E8F0";
+  toggle.style.backgroundColor = "#000";
+  document.querySelectorAll("td, th").forEach((cell) => {
+    cell.style.borderColor = "#000";
+  });
+  Array.from(document.getElementsByClassName("border")).forEach((border) => {
+    border.style.borderColor = "#000";
+  });
+}
+
+function lightMode() {
+  toggle.src = "./assets/sun.svg";
+  document.body.style.backgroundColor = "#0F172A";
+  document.body.style.color = "#F8FAFC";
+  nav.style.backgroundColor = "#1E293B";
+  nav.style.borderBottom = "#334155";
+  toggle.style.backgroundColor = "#fff";
+  document.querySelectorAll("td, th").forEach((cell) => {
+    cell.style.borderColor = "#fff";
+  });
+  Array.from(document.getElementsByClassName("border")).forEach((border) => {
+    border.style.borderColor = "#fff";
+  });
+}
+
 toggle.addEventListener("click", () => {
   if (!isDark) {
-    toggle.src = "./assets/sun.svg";
-    document.body.style.backgroundColor = "#0F172A";
-    document.body.style.color = "#F8FAFC";
-    nav.style.backgroundColor = "#1E293B";
-    nav.style.borderBottom = "#334155";
-    toggle.style.backgroundColor = "#fff";
-    document.querySelectorAll("td, th").forEach((cell) => {
-      cell.style.borderColor = "#fff";
-    });
-    Array.from(document.getElementsByClassName("border")).forEach((border) => {
-      border.style.borderColor = "#fff";
-    });
+    lightMode();
   } else {
-    toggle.src = "./assets/moon.svg";
-    document.body.style.backgroundColor = "#F8FAFC";
-    document.body.style.color = "#0F172A";
-    nav.style.backgroundColor = "#FFFFFF";
-    nav.style.borderBottom = "2px solid #E2E8F0";
-    toggle.style.backgroundColor = "#000";
-    document.querySelectorAll("td, th").forEach((cell) => {
-      cell.style.borderColor = "#000";
-    });
-    Array.from(document.getElementsByClassName("border")).forEach((border) => {
-      border.style.borderColor = "#000";
-    });
+    darkMode();
   }
   isDark = !isDark;
 });
@@ -45,13 +54,20 @@ if (currentHr < 12) {
 }
 
 let task = document.querySelector(".task");
+let div = document.createElement("div");
+div.id = "new-task";
 let taskInp = document.createElement("input");
-taskInp.type = "text";
-taskInp.id = "task-name";
-taskInp.placeholder = "Enter Task";
-let addBtn = document.createElement("button");
-addBtn.innerText = "Add";
+
+div.innerHTML = `<form action="return taskAdd()"> <input type="text" .id = "task-name" placeholder = "Enter Task">
+<button id="add-btn">Add</button> </form>`;
+
 task.addEventListener("click", () => {
-  task.prepend(taskInp);
-  task.append(addBtn);
+  task.replaceWith(div);
 });
+console.log(div);
+
+let taskName = document.getElementById("task-name");
+
+function taskAdd(){
+  
+}
