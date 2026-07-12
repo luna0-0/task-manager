@@ -58,7 +58,7 @@ let div = document.createElement("div");
 div.id = "new-task";
 let taskInp = document.createElement("input");
 
-div.innerHTML = `<form action="return taskAdd()"> <input type="text" .id = "task-name" placeholder = "Enter Task">
+div.innerHTML = `<form onsubmit="return taskAdd()"> <input type="text" id = "task-name" placeholder = "Enter Task">
 <button id="add-btn">Add</button> </form>`;
 
 task.addEventListener("click", () => {
@@ -69,5 +69,6 @@ console.log(div);
 let taskName = document.getElementById("task-name");
 
 function taskAdd(){
-  
+  let taskList=document.querySelector(".task-list");
+  taskList.appendChild=taskName.value;
 }
