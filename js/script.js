@@ -60,23 +60,27 @@ if (currentHr < 12) {
 }
 
 let task = document.querySelector(".task");
-let div = document.createElement("div");
-div.id = "new-task";
-let taskInp = document.createElement("input");
+let taskBtn = document.querySelector(".task-btn");
 
-div.innerHTML = `<form onsubmit="return taskAdd()"> <input type="text" id = "task-name" placeholder = "Enter Task">
-<button id="add-btn">Add</button> </form>`;
-
-task.addEventListener("click", () => {
-  task.replaceWith(div);
+taskBtn.addEventListener("click", () => {
+  task.innerHTML = `<form onsubmit="taskAdd(); return false;" method="POST"> <input type="text" class = "task-name" placeholder = "Enter Task">
+  <button class="add-btn">Add</button> </form>`;
 });
-console.log(div);
 
-let taskName = document.getElementById("task-name");
+function taskToggle() {
+  task.innerHTML = `<span><button class="add-btn">+</button></span>
+          <p>New Task</p>`;
+}
 
 function taskAdd() {
+  let taskName = document.querySelector(".task-name").value;
+  if (taskName == "") {
+    return false;
+  }
+  taskToggle();
+  alert("New task added");
+  console.log(taskName);
   let taskList = document.createElement("li");
-  taskList.class = "task-list";
-
-  // taskList.innerText = taskName.value;
+  taskList.className = "task-list";
+  taskList.append(taskName);
 }
