@@ -18,35 +18,40 @@
         </div>
       </nav>
       <section class="hero">
-        <h1>Good <span id="greet"></span> ✨</h1>
-        <p><strong>Today's overview: </strong></p>
-        <table id="dashboard">
-          <tr>
-            <th>Total Tasks</th>
-            <td id="tot-tasks">-</td>
-          </tr>
-          <tr>
-            <th>Pending</th>
-            <td id="pending">-</td>
-          </tr>
-        </table>
+        <h1 class="bottom-border">Good <span id="greet"></span> ✨</h1>
+        <div id="dashboard">
+          <p><strong>Today's overview: </strong></p>
+          <table id="dashboard">
+            <tr>
+              <th>Total Tasks</th>
+              <td id="tot-tasks">-</td>
+            </tr>
+            <tr>
+              <th>Pending</th>
+              <td id="pending">-</td>
+            </tr>
+          </table>
+        </div>
       </section>
     </header>
 
     <main>
-      <section class="add-task border">
-        <div class="bottom-border border">
+      <section class="add-task">
+        <div class="bottom-border">
           <h2>Add New Task</h2>
           <p>Stay organized by creating your next task.</p>
         </div>
-        <div class="bottom-border task border">
+        <div class="bottom-border task">
           <span><button class="add-btn">+</button></span>
           <p>New Task</p>
         </div>
       </section>
 
-      <section class="task-section border">
-        <ol class="task-list"></ol>
+      <section class="task-section">
+        <h2>Your Tasks 📝</h2>
+        <ol class="task-lists">
+          <!-- <input type="checkbox" class="task-list" /> -->
+        </ol>
       </section>
     </main>
 

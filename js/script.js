@@ -2,38 +2,44 @@ let toggle = document.getElementById("toggle-img");
 let isDark = false;
 let nav = document.querySelector("nav");
 
-function darkMode() {
+function lightMode() {
   toggle.src = "./assets/moon.svg";
   document.body.style.backgroundColor = "#F8FAFC";
   document.body.style.color = "#0F172A";
   nav.style.backgroundColor = "#FFFFFF";
   nav.style.borderBottom = "2px solid #E2E8F0";
   toggle.style.backgroundColor = "#000";
+  document.querySelectorAll(".bottom-border").forEach((border) => {
+    border.style.borderBottom = "1px solid #000";
+  });
   document.querySelectorAll("td, th").forEach((cell) => {
     cell.style.borderColor = "#000";
   });
-  Array.from(document.getElementsByClassName("border")).forEach((border) => {
-    border.style.borderColor = "#000";
+  Array.from(document.getElementsByTagName("section")).forEach((section) => {
+    section.style.borderColor = "#000";
   });
 }
 
-function lightMode() {
+function darkMode() {
   toggle.src = "./assets/sun.svg";
   document.body.style.backgroundColor = "#0F172A";
   document.body.style.color = "#F8FAFC";
   nav.style.backgroundColor = "#1E293B";
   nav.style.borderBottom = "#334155";
   toggle.style.backgroundColor = "#fff";
+  document.querySelectorAll(".bottom-border").forEach((border) => {
+    border.style.borderBottom = "1px solid #fff";
+  });
   document.querySelectorAll("td, th").forEach((cell) => {
     cell.style.borderColor = "#fff";
   });
-  Array.from(document.getElementsByClassName("border")).forEach((border) => {
-    border.style.borderColor = "#fff";
+  Array.from(document.getElementsByTagName("section")).forEach((section) => {
+    section.style.borderColor = "#fff";
   });
 }
 
 toggle.addEventListener("click", () => {
-  if (!isDark) {
+  if (isDark) {
     lightMode();
   } else {
     darkMode();
@@ -68,7 +74,9 @@ console.log(div);
 
 let taskName = document.getElementById("task-name");
 
-function taskAdd(){
-  let taskList=document.querySelector(".task-list");
-  taskList.appendChild=taskName.value;
+function taskAdd() {
+  let taskList = document.createElement("li");
+  taskList.class = "task-list";
+
+  // taskList.innerText = taskName.value;
 }
