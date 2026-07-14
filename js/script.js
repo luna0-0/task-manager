@@ -63,15 +63,14 @@ let task = document.querySelector(".task");
 let taskBtn = document.querySelector(".task-btn");
 
 taskBtn.addEventListener("click", () => {
-  task.innerHTML = `<form onsubmit="taskAdd(); return false;" method="POST"> <input type="text" class = "task-name" placeholder = "Enter Task">
-  <button class="add-btn">Add</button> </form>`;
+  document.querySelector(".new-task").style.display = "none";
 });
 
 function taskToggle() {
-  task.innerHTML = `<span><button class="add-btn">+</button></span>
-          <p>New Task</p>`;
+  document.querySelector(".task-form").style.display = "block";
 }
 
+let count = 0;
 function taskAdd() {
   let taskName = document.querySelector(".task-name").value;
   if (taskName == "") {
@@ -82,5 +81,14 @@ function taskAdd() {
   console.log(taskName);
   let taskList = document.createElement("li");
   taskList.className = "task-list";
-  taskList.append(taskName);
+  document.querySelector(".task-lists").append(taskList);
+  let checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  let label = document.createElement("label");
+  checkbox.id = "checkbox-" + count;
+  label.htmlFor = "checkbox-" + count;
+  taskList.append(checkbox, label);
+  label.append(taskName);
+  count++;
+  console.log(taskList);
 }
