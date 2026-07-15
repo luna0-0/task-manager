@@ -63,11 +63,13 @@ let task = document.querySelector(".task");
 let taskBtn = document.querySelector(".task-btn");
 
 taskBtn.addEventListener("click", () => {
-  document.querySelector(".new-task").style.display = "none";
+  task.classList.add("hidden");
+  document.querySelector(".task-form").classList.remove("hidden");
 });
 
 function taskToggle() {
-  document.querySelector(".task-form").style.display = "block";
+  document.querySelector(".task-form").classList.add("hidden");
+  task.classList.remove("hidden");
 }
 
 let count = 0;
@@ -84,11 +86,11 @@ function taskAdd() {
   document.querySelector(".task-lists").append(taskList);
   let checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  let label = document.createElement("label");
   checkbox.id = "checkbox-" + count;
+  let label = document.createElement("label");
   label.htmlFor = "checkbox-" + count;
   taskList.append(checkbox, label);
   label.append(taskName);
   count++;
-  console.log(taskList);
+  document.querySelector(".task-name").value = "";
 }
