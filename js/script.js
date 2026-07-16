@@ -80,7 +80,6 @@ function taskAdd() {
   }
   taskToggle();
   alert("New task added");
-  console.log(taskName);
   let taskList = document.createElement("li");
   taskList.className = "task-list";
   document.querySelector(".task-lists").append(taskList);
@@ -91,6 +90,13 @@ function taskAdd() {
   label.htmlFor = "checkbox-" + count;
   taskList.append(checkbox, label);
   label.append(taskName);
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      label.classList.add("completed");
+    } else {
+      label.classList.remove("completed");
+    }
+  });
   count++;
   document.querySelector(".task-name").value = "";
 }
