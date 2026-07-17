@@ -96,7 +96,26 @@ function taskAdd() {
     } else {
       label.classList.remove("completed");
     }
+    updateDashboard();
   });
   count++;
   document.querySelector(".task-name").value = "";
+  updateDashboard();
+}
+
+function updateDashboard() {
+  let totalTask = 0;
+  let pendingTask = 0;
+  let completeTask = 0;
+
+  document
+    .querySelectorAll(".task-list input[type='checkbox']")
+    .forEach((c) => {
+      totalTask++;
+      if (c.checked) completeTask++;
+    });
+  pendingTask = totalTask - completeTask;
+
+  document.getElementById("tot-tasks").innerText = totalTask;
+  document.getElementById("pending").innerText = pendingTask;
 }
